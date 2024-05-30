@@ -28,6 +28,8 @@ firebase deploy
 -configure Redux  - (npm i -D @reduxjs/toolkit)
                   - (npm i react-redux)
 
-in code we configure
+-in code we configure
     -configureStore({reducer:{},})
-    create slice's
+    create slice's 
+    
+-const navigate=useNavigate()
