@@ -37,4 +37,4 @@ firebase deploy
 -get data from TMDB now playing movie list 
 
 
-# *VideoBackground line 15 commented bg-video plyaing*
+# *VideoBackground(component) line 15 commented bg-video plyaing*
