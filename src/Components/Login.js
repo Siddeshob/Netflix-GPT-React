@@ -7,19 +7,18 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUsers } from "../Utils/UserSlice";
 
 const Login = () => {
   const [isSignInform, setIsSignInform] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
+
 
   const email = useRef(null);
   const Password = useRef(null);
   const name = useRef(null);
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
     setIsSignInform(!isSignInform);
@@ -34,6 +33,7 @@ const Login = () => {
     );
     setErrorMessage(messageForValidate);
     if (messageForValidate) return;
+
     if (!isSignInform) {
       // Sign up logic
       createUserWithEmailAndPassword(
@@ -48,12 +48,18 @@ const Login = () => {
             photoURL: "https://avatars.githubusercontent.com/u/130699981?v=4",
           })
             .then(() => {
-              const {uid,email,displayName,photoURL} = auth.current;
-              dispatch(addUsers({udi:uid,email:email,displayName:displayName,photoURL:photoURL}))
-              navigate("/browser");
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUsers({
+                  udi: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
             })
             .catch((error) => {
-              setErrorMessage(error.message)
+              setErrorMessage(error.message);
             });
         })
         .catch((error) => {
@@ -71,8 +77,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
-          navigate("/browser");
+          
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -122,7 +127,7 @@ const Login = () => {
             type="text"
             placeholder="Password"
             className="p-3 sm:p-4 my-2 sm:my-4 w-full bg-black text-white border-red-700 border-solid border-l-2"
-          />{" "}
+          />
           <br />
           <p className="text-red-700">{errorMessage}</p>
           <button

@@ -33,3 +33,8 @@ firebase deploy
     create slice's 
     
 -const navigate=useNavigate()
+-Register for TMDB API & create a app and get access token
+-get data from TMDB now playing movie list 
+
+
+# *VideoBackground line 15 commented bg-video plyaing*
