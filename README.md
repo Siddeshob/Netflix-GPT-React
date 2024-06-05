@@ -38,3 +38,7 @@ firebase deploy
 
 
 # *VideoBackground(component) line 15 commented bg-video plyaing*
+
+# GPT earch feature
+1.add GPT button in header
+2.multi-language feature

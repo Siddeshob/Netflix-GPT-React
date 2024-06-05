@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUsers } from "../Utils/UserSlice";
+import { BG_URL } from "../Utils/constants";
 
 const Login = () => {
   const [isSignInform, setIsSignInform] = useState(true);
@@ -95,8 +96,8 @@ const Login = () => {
       <div>
         <img
           className="scale-105 absolute w-full h-full object-cover"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/a99688ca-33c3-4099-9baa-07a2e2acb398/ca15fd28-b624-4852-8bfe-9cdd5c88475d/IN-en-20240520-popsignuptwoweeks-perspective_alpha_website_small.jpg"
-          alt="logo"
+          src={BG_URL}
+           alt="logo"
         />
       </div>
       <div className="bg-opacity-75">
